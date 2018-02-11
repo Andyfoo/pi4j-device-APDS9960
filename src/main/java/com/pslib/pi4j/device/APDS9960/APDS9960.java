@@ -9,6 +9,16 @@ import com.pi4j.io.i2c.I2CDevice;
 import com.pi4j.io.i2c.I2CFactory;
 import com.pi4j.wiringpi.Gpio;
 
+/**
+ * APDS-9960 Digital Proximity, Ambient Light, RGB and Gesture Sensor
+ * Converted from python to Java.(https://github.com/liske/python-apds9960)
+ * 
+ * @author Andyfoo
+ * https://github.com/Andyfoo/pi4j-device-APDS9960
+ * http://www.andyfoo.com
+ * http://www.pslib.com
+ *
+ */
 public class APDS9960 {
 	// APDS9960 i2c address
 	public static final int APDS9960_I2C_ADDR = 0x39;
@@ -230,7 +240,7 @@ public class APDS9960 {
 		// check device id
 		this.dev_id = _read_byte_data(APDS9960_REG_ID);
 		if (!contains(this.valid_id, this.dev_id)) {
-			throw new ADPS9960InvalidDevId(this.dev_id, this.valid_id);
+			throw new ADPS9960InvalidDevIdException(this.dev_id, this.valid_id);
 		}
 		// disable all features
 		setMode(APDS9960_MODE_ALL, false);
@@ -289,7 +299,7 @@ public class APDS9960 {
 		// read ENABLE register
 		int reg_val = getMode();
 		if (mode < 0 || mode > APDS9960_MODE_ALL) {
-			throw new ADPS9960InvalidMode(mode);
+			throw new ADPS9960InvalidModeException(mode);
 		}
 		// change bit(s) in ENABLE register
 		if (mode == APDS9960_MODE_ALL) {
@@ -1322,8 +1332,7 @@ public class APDS9960 {
 		Gpio.delay(s);
 	}
 
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws Exception {
 	}
 
 }
