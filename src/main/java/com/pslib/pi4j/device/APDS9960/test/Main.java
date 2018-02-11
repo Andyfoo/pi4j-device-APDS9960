@@ -18,7 +18,7 @@ public class Main {
 			TestProx.main(args);
 			break;
 			default:
-				System.out.println("java APDS9960.jar ambient|color|gesture|prox");
+				System.out.println("java -jar APDS9960.jar ambient|color|gesture|prox");
 		}
 	}
 
