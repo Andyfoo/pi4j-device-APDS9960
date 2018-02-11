@@ -8,8 +8,8 @@ public class Main {
 		case "ambient":
 			TestAmbient.main(args);
 			break;
-		case "color":
-			TestColor.main(args);
+		case "rgb":
+			TestRGB.main(args);
 			break;
 		case "gesture":
 			TestGesture.main(args);
@@ -18,7 +18,7 @@ public class Main {
 			TestProx.main(args);
 			break;
 			default:
-				System.out.println("java -jar APDS9960.jar ambient|color|gesture|prox");
+				System.out.println("java -jar APDS9960.jar ambient|rgb|gesture|prox");
 		}
 	}
 

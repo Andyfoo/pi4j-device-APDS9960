@@ -2,7 +2,7 @@ package com.pslib.pi4j.device.APDS9960.test;
 
 import com.pslib.pi4j.device.APDS9960.APDS9960;
 
-public class TestColor {
+public class TestRGB {
 
 	public static void main(String[] args) throws Exception {
 		APDS9960 apds = new APDS9960();
